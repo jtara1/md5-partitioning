@@ -1,6 +1,6 @@
 {
   "name": "md5-partitioning",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "create the threshold md5 cmp values for sharding / partitioning / bucketing",
   "main": "index.js",
   "scripts": {
