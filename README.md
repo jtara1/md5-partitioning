@@ -2,6 +2,12 @@
 
 create the threshold md5 cmp values for sharding / partitioning / bucketing
 
+## Install
+
+```shell
+npm i md5-partitioning
+```
+
 ## Example
 
 ```js
