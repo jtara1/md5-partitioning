@@ -1,3 +1,5 @@
+const MD5_PARTITIONING_CACHE = {};
+
 module.exports = {
   /**
    * Creates the values you'd compared to a MD5 hash to select partitioned
@@ -41,9 +43,13 @@ module.exports = {
    * }
    *
    * @param {number} groups
+   * @param {boolean} cache If true, stores output in an object and returns the
+   * value from the object if this function is called again with the same arguments.
    * @returns {[null|string, string][]}
    */
-  createPartitionThresholds(groups = 16) {
+  createPartitionThresholds(groups = 16, cache = false) {
+    if (cache && MD5_PARTITIONING_CACHE[groups]) return MD5_PARTITIONING_CACHE[groups];
+
     const base16MaxDigits = 32;
     const maxBase16 = Array(base16MaxDigits).fill('F').join('');
     const maxValue = parseInt(maxBase16, 16);
@@ -58,9 +64,12 @@ module.exports = {
       thresholds.push(maxHash);
     }
 
-    return thresholds
+    const output = thresholds
       .slice(0, thresholds.length - 1)
       .map((threshold, index) => [threshold, thresholds[index + 1]]);
+
+    if (cache) MD5_PARTITIONING_CACHE[groups] = output;
+    return output;
   },
 };
 
@@ -72,4 +81,3 @@ function padLeftWithZeroes(string, targetLength = 32) {
   const leftPadding = Array(targetLength - string.length).fill('0');
   return `${leftPadding}${string}`;
 }
-
