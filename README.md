@@ -5,6 +5,8 @@ create the threshold md5 cmp values for sharding / partitioning / bucketing
 ## Example
 
 ```js
+const { createPartitionThresholds } = require('md5-partitioning');
+
 const thresholds = createPartitionThresholds(4);
 const expected = [
   [

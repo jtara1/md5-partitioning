@@ -1,5 +1,5 @@
 {
-  "name": "CreatePartitionThresholds",
+  "name": "md5-partitioning",
   "version": "1.0.0",
   "description": "create the threshold md5 cmp values for sharding / partitioning / bucketing",
   "main": "index.js",
@@ -8,13 +8,13 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/jtara1/CreatePartitionThresholds.git"
+    "url": "git+https://github.com/jtara1/md5-partitioning.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/jtara1/CreatePartitionThresholds/issues"
+    "url": "https://github.com/jtara1/md5-partitioning/issues"
   },
-  "homepage": "https://github.com/jtara1/CreatePartitionThresholds#readme"
+  "homepage": "https://github.com/jtara1/md5-partitioning#readme"
 }
